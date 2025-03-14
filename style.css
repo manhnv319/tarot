@@ -1,0 +1,557 @@
+h1, h2, h3, h4, h5, h6, p {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+html, body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a, a:visited {
+    color: inherit;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+img {
+  border-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Basic rules */
+html {
+    overflow-x: hidden;
+}
+
+.page {
+    background-color: #f9f4e8;
+    color: #525252;
+    font-family: "Lato", sans-serif;
+    font-size: 1.125rem;
+    overflow-x: hidden;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1440px;
+    min-height: 100vh;
+    padding: 0 80px;
+}
+
+.btn {
+    background-color: #416bd2;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    height: 63px;
+    padding: 18px 24px;
+    transition: background-color .3s;
+}
+
+.btn:visited {
+    color: #ffffff;
+  }
+
+.btn:hover {
+    background-color: #3455a8;
+}
+
+
+/* Page header */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.page-header__nav,
+.page-header__right {
+    display: flex;
+    gap: 20px;
+}
+
+.page-header__nav-link 
+.page-header__right-link:not(:last-child){
+    transition: color .3s;
+}
+
+.page-header__nav-link:hover,
+.page-header__right-link:not(:last-child):hover {
+  color: #181818;
+}
+
+/* Page header left part */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-element {
+  height: 50px;       /* Chiều cao bằng cha */
+  width: auto;        /* Tự động tính chiều rộng để giữ tỉ lệ */
+  border-radius: 10px;
+  object-fit: contain; /* Giúp ảnh co giãn hợp lý trong khung */
+}
+
+
+
+.page-header__hamburger-icon {
+    display: none;
+}
+
+.promate-text {
+    background: linear-gradient(to right, #EAB550, #EA5075);
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    height: 24px;
+    padding: 3px 12px;
+}
+
+
+/* Page header right part */
+.page-header__right {
+    align-items: center;
+}
+
+
+/* Mobile nav section */
+.mobile-nav {
+    display: none;
+}
+
+/* Page main */
+.page-main {
+    display: flex;
+    flex: 1;
+    gap: 50px;
+    padding: 100px 0 40px;
+}
+
+.page-main__left,
+.page-main__right {
+    flex: 50%;
+}
+
+/* Page main left part */
+.page-main__left {
+    order: 1;
+}
+
+.page-main__title {
+    color: #000000;
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem;
+    line-height: 1.3;
+    margin-top: 50px;
+}
+
+.page-main__copy {
+    margin-top: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.page-main__form {
+    display: flex; /* Thiết lập chế độ hiển thị của phần tử thành flexbox, cho phép sắp xếp các phần tử con theo hàng hoặc cột. */
+    flex-wrap: wrap; /* Cho phép các phần tử con trong flexbox tự động xuống dòng nếu không đủ không gian trong hàng. */
+    gap: 10px; /* Thiết lập khoảng cách giữa các phần tử con trong flexbox là 10px. */
+    margin-top: 25px; /* Tạo khoảng cách 25px phía trên phần tử này, giúp tạo không gian giữa nó và phần tử phía trên. */
+    max-width: 500px; /* Giới hạn chiều rộng tối đa của phần tử này là 500px. Nếu không gian có sẵn lớn hơn 500px, phần tử sẽ không mở rộng hơn. */
+    width: 100%; /* Đặt chiều rộng của phần tử này là 100% của phần tử cha, nhưng sẽ không vượt quá chiều rộng tối đa đã định nghĩa. */
+}
+
+.sr-only {
+    height: 1px; /* Chiều cao của phần tử được đặt là 1px, rất nhỏ để không chiếm không gian hiển thị */
+    left: -10000px; /* Đưa phần tử ra ngoài vùng nhìn thấy của màn hình, ở bên trái */
+    overflow: hidden; /* Ẩn bất kỳ nội dung nào vượt quá kích thước của phần tử */
+    position: absolute; /* Đặt phần tử ở vị trí tuyệt đối so với phần tử cha gần nhất có vị trí khác (relative, absolute, hoặc fixed) */
+    top: auto; /* Đặt vị trí trên tự động, không cần thiết trong trường hợp này */
+    width: 1px; /* Chiều rộng của phần tử được đặt là 1px, cũng rất nhỏ để không chiếm không gian hiển thị */
+}
+
+.page-main__form-email {
+    border-radius: 6px; /* Bo tròn các góc của trường nhập liệu với bán kính 6px */
+    border: 0; /* Không có viền cho trường nhập liệu */
+    flex: 3; /* Trong một bố cục flexbox, trường này sẽ chiếm 3 phần trong tổng số phần của không gian có sẵn */
+    font-size: 1rem; /* Kích thước phông chữ là 1rem, tương đương với kích thước phông chữ mặc định của trình duyệt (thường là 16px) */
+    height: 63px; /* Chiều cao của trường nhập liệu là 63px */
+    outline: none; /* Không có viền ngoài khi trường được chọn (focus) */
+    padding: 6px 12px; /* Khoảng cách bên trong trường nhập liệu: 6px trên và dưới, 12px trái và phải */
+}
+
+
+.page-main__form-email:focus {
+    outline: 1px dotted gray;
+}
+
+.page-main__form-submit {
+    width: max-content; /* Chiều rộng sẽ được điều chỉnh để phù hợp với nội dung bên trong mà không bị cắt bớt */
+}
+
+/* Page main right */
+.page-main__right {
+    order: 2; /* Xác định thứ tự của phần tử trong một flex container */
+    position: relative; /* Đặt vị trí của phần tử tương đối so với vị trí ban đầu của nó */
+}
+
+.page-main__right-img {
+    height: 443px;
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: auto;
+}
+
+.shape-1 {
+    transform: rotate(-405deg);
+  }
+
+  .shape-2 {
+    transform: rotate(-390deg);
+  }
+  
+  .shape-3 {
+    transform: rotate(-375deg);
+  }
+  
+  .shape-4 {
+    transform: rotate(-360deg);
+  }
+
+  .active {
+    right: 0;
+  }
+
+/* Page footer */
+.page-footer {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 40px 0;
+  }
+  
+  .page-footer__left,
+  .page-footer__right {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Page footer left part */
+  .page-footer__left-link {
+    transition: color .3s;
+  }
+  
+  .page-footer__left-link:hover {
+    color: #181818;
+  }
+  
+  /* Page footer right part */
+  .page-footer__right-box {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page-footer__right-link {
+    color: #000000;
+    font-weight: 700;
+    transition: color .3s;
+  }
+  
+  .page-footer__right-link:visited {
+    color: #000000;
+  }
+  
+  .page-footer__right-link:hover {
+    color: #4c4c4c;
+  }
+  
+  .page-footer__right-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+  }
+
+  .page-footer__right-img {
+    height: 50px;
+    width: auto;
+    border-radius: 25px;
+  }
+
+
+  /* Responsive design */
+@media (max-width: 1080px) {
+    .page-container {
+      padding: 0 40px;
+    }
+    
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      position: fixed;
+      left: 0;
+      height: 100%;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+    
+    .mobile-nav {
+      background-color: #fff;
+      display: block;
+      height: 100%;
+      max-width: 430px;
+      overflow-y: scroll;
+      padding: 40px 0;
+      position: fixed;
+      right: -2000px;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+    
+    .mobile-nav__top {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+    
+    .mobile-nav__main {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    
+    .mobile-nav__main-link {
+      align-items: center;
+      display: flex;
+      flex: 100%;
+      height: 63px;
+      padding: 0 40px;
+    }
+    
+    .mobile-nav__main-link {
+      transition: background-color .3s;
+    }
+    
+    .mobile-nav__main-link:hover {
+      background-color: #F0F0F0;
+    }
+    
+    .mobile-nav__bottom {
+      display: flex;
+    }
+    
+    .mobile-nav__bottom-link {
+      display: flex;
+      flex: 100%;
+      justify-content: center;
+      margin: 30px 40px 0;
+    }
+    
+    .page-header__hamburger-icon {
+      display: block;
+    }
+    
+    .page-header__hamburger-icon,
+    .mobile-nav__close-icon {
+      cursor: pointer;
+    }
+    
+    .material-icons {
+      color: #000;
+      font-size: 1.5rem;
+    }
+    
+    .page-header__nav,
+    .page-header__right {
+      display: none;
+    }
+    
+    /* Page main section */
+    .page-main {
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 50px 0 40px;
+    }
+    
+    .page-main__left {
+      flex: 100%;
+      order: 2;
+    }
+    
+    .page-main__title {
+      margin-top: 0;
+    }
+  
+    .page-main__right {
+      flex: 100%;
+      min-height: 450px;
+      order: 1;
+    }
+    
+    .page-main__right-img {
+      right: 50%;
+    }
+    
+    .shape-1 {
+      transform: translateX(50%) rotate(-405deg);
+    }
+  
+    .shape-2 {
+      transform: translateX(50%) rotate(-390deg);
+    }
+  
+    .shape-3 {
+      transform: translateX(50%) rotate(-375deg);
+    }
+  
+    .shape-4 {
+      transform: translateX(50%) rotate(-360deg);
+    }
+    
+    .active {
+      right: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .page-container {
+      padding: 0 20px;
+    }
+    
+    /* Mobile nav section */
+    .mobile-nav__top,
+    .mobile-nav__main-link {
+      padding: 0 20px;
+    }
+    
+    .mobile-nav__bottom-link {
+      margin: 30px 20px 0;
+    }
+    
+    /* Page main section */
+    .page-main__title {
+      font-size: 2.7rem;
+    }
+    
+    .page-main__form {
+      gap: 15px;
+      max-width: 100vw;
+    }
+    
+    .page-main__form-email,
+    .page-main__form-submit {
+      flex: 100%;
+    }
+    
+    .page-main__right {
+      min-height: 350px;
+    }
+    
+    .page-main__right-img {
+      width: 287px;
+      height: auto;
+      right: 40%;
+    }
+    
+    .shape-1 {
+      transform: translateX(40%) rotate(-405deg);
+    }
+  
+    .shape-2 {
+      transform: translateX(40%) rotate(-390deg);
+    }
+  
+    .shape-3 {
+      transform: translateX(40%) rotate(-375deg);
+    }
+  
+    .shape-4 {
+      transform: translateX(40%) rotate(-360deg);
+    } 
+  }
+  
+  @media (max-width: 500px) {
+    .page-main__right-img {
+      right: 25%; 
+    }
+    
+    .shape-1 {
+      transform: translateX(25%) rotate(-405deg);
+    }
+  
+    .shape-2 {
+      transform: translateX(25%) rotate(-390deg);
+    }
+  
+    .shape-3 {
+      transform: translateX(25%) rotate(-375deg);
+    }
+  
+    .shape-4 {
+      transform: translateX(25%) rotate(-360deg);
+    }
+    
+    .page-footer__left,
+    .page-footer__right {
+      flex: 100%;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .page-main__title {
+      font-size: 2.4rem;
+    }
+
+    .page-main__right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+    
+    .page-main__right-img {
+      width: 300px;
+      right: auto;
+      top: auto;
+    }
+  }
