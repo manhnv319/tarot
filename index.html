@@ -1,100 +1,587 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tarot thông điệp</title>
-    <link rel="icon" type="image/png" href="assets/tarot-logo.png" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" type="text/css" />
-  </head>
-  <body class="page">
-    <div class="overlay"></div>
-
-    <div class="mobile-nav">
-      <div class="mobile-nav__top">
-        <a href="index.html" class="logo-wrapper">
-            <img src="assets/logo.svg" alt="Site logo">
-            <span class="promote-text">Hosterr is hiring!</span>
-          </a><!--  -->
-          <span class="material-icons mobile-nav__close-icon">close</span>
-      </div>
-      <div class="mobile-nav__main">
-        <a href="#" class="mobile-nav__main-link">Plans</a>
-          <a href="#" class="mobile-nav__main-link">Find Domain</a>
-          <a href="#" class="mobile-nav__main-link">Why Hosterr</a>
-          <a href="#" class="mobile-nav__main-link">Sign in</a>
-      </div>
-      <div class="mobile-nav__bottom">
-        <a href="#" class="btn mobile-nav__bottom-link">Join Waitlist</a>
-      </div>
-    </div>
-
-    <div class="page-container">
-      <header class="page-header">
-        <a href="https://www.facebook.com/people/Dilys-Nguyen/pfbid02rRJfhnn43DXW8Lvkq2DYvUeAn9igtBwtGrS6ywcCotgV9gzg2TsaAcL8F1M38eBNl" class="logo-wrapper">
-          <img src="assets/tarot-logo.png" alt="Site logo" class="logo-element"/>
-          <span class="promate-text">Đăng ký ngay</span>
-        </a>
-        <span class="material-icons page-header__hamburger-icon">menu</span>
-        <!-- <nav class="page-header__nav">
-          <a href="#" class="page-header__nav-link">Plans</a>
-          <a href="#" class="page-header__nav-link">Features</a>
-          <a href="#" class="page-header__nav-link">Contact</a>
-        </nav> -->
-        <div class="page-header__right">
-          <a href="https://www.facebook.com/people/Dilys-Nguyen/pfbid02rRJfhnn43DXW8Lvkq2DYvUeAn9igtBwtGrS6ywcCotgV9gzg2TsaAcL8F1M38eBNl" class="page-header__right-link btn">Join Tarot</a>
-      </header>
-      <main class="page-main">
-        <div class="page-main__left">
-          <h1 class="page-main__title">
-            Tarot Vioo - Hơn 5 năm đồng hành cùng bạn trên hành trình khám phá
-            bản thân
-          </h1>
-          <p class="page-main__copy">
-            Tarot Vioo mang đến trải nghiệm xem bài Tarot chuyên sâu, kết hợp
-            nghệ thuật giải mã tâm linh thông qua các bộ bài đa dạng như Tarot,
-            bài trà, Lenormand và Oracle. Với hơn 5 năm kinh nghiệm thực tế,
-            chúng tôi không chỉ đưa ra lời khuyên chính xác mà còn là người bạn
-            đồng hành giúp bạn hiểu rõ hơn về bản thân, mối quan hệ và con đường
-            phía trước.
-          </p>
-          <!-- <form method="get" action="index.html" class="page-main__form">
-            <label for="email" class="sr-only">Email</label>
-            <input type="email" id="email" class="page-main__form-email" name="email" placeholder="Nhập email của bạn" required/>
-            <button class="page-main__form-submit btn">Join Tarot</button>
-          </form> -->
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Vio - Dịch vụ tâm linh chuyên nghiệp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f5f2;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #5e2b97 0%, #3a1c5e 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        .tarot-card {
+            perspective: 1000px;
+        }
+        
+        .tarot-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .tarot-card:hover .tarot-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .tarot-front, .tarot-back {
+            backface-visibility: hidden;
+        }
+        
+        .tarot-back {
+            transform: rotateY(180deg);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-6 py-8">
+            <nav class="flex justify-between items-center">
+                <div class="text-2xl font-bold heading-font">Tarot Vio</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-purple-200 transition-all">Dịch vụ</a>
+                    <a href="#about" class="hover:text-purple-200 transition-all">Về chúng tôi</a>
+                    <a href="#testimonials" class="hover:text-purple-200 transition-all">Đánh giá</a>
+                    <a href="#contact" class="hover:text-purple-200 transition-all">Liên hệ</a>
+                </div>
+                <button class="md:hidden text-2xl" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+            
+            <div class="mt-16 md:mt-24 mb-16">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 heading-font">Giải mã vận mệnh với Tarot Vio</h1>
+                    <p class="text-xl md:text-2xl mb-8">Khám phá sự thật ẩn sâu trong các lá bài và tìm ra hướng đi đúng đắn cho cuộc đời bạn</p>
+                    <a href="#services" class="inline-block bg-white text-purple-800 font-bold px-8 py-3 rounded-full hover:bg-purple-100 transition-all">Xem dịch vụ</a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center pb-16">
+                <div class="tarot-card w-48 md:w-64 mx-4">
+                    <div class="tarot-inner relative w-full h-64 md:h-80">
+                        <div class="tarot-front absolute w-full h-full bg-amber-50 rounded-lg shadow-lg p-4 flex items-center justify-center border-4 border-amber-200">
+                            <i class="fas fa-star text-6xl text-purple-600"></i>
+                        </div>
+                        <div class="tarot-back absolute w-full h-full bg-purple-600 rounded-lg shadow-lg p-4 flex items-center justify-center text-white text-center border-4 border-amber-200">
+                            "Hiểu quá khứ - Nắm hiện tại - Kiến tạo tương lai"
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="page-main__right">
-            <!-- <img src="assets/blue-shape.svg" alt="" class="page-main__right-img shape-1">
-            <img src="assets/pink-shape.svg" alt="" class="page-main__right-img shape-2">
-            <img src="assets/purple-shape.svg" alt="" class="page-main__right-img shape-3">
-            <img src="assets/Hero-Image.png" alt="" class="page-main__right-img shape-4"> -->
-            <img src="assets/tarot-back.png" alt="" class="page-main__right-img">
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden gradient-bg text-white w-full py-4 px-6 absolute z-10">
+        <div class="flex flex-col space-y-4">
+            <a href="#services" class="hover:text-purple-200 transition-all">Dịch vụ</a>
+            <a href="#about" class="hover:text-purple-200 transition-all">Về chúng tôi</a>
+            <a href="#testimonials" class="hover:text-purple-200 transition-all">Đánh giá</a>
+            <a href="#contact" class="hover:text-purple-200 transition-all">Liên hệ</a>
         </div>
-    </main>
-      <footer class="page-footer">
-        <div class="page-footer__left">
-          <a href="https://www.facebook.com/people/Dilys-Nguyen/pfbid02rRJfhnn43DXW8Lvkq2DYvUeAn9igtBwtGrS6ywcCotgV9gzg2TsaAcL8F1M38eBNl" class="page-footer__left-link">Facebook</a>
-          <a href="https://www.instagram.com/tarotsvio?igsh=MTE0czdyeWt2cGR3aQ%3D%3D&utm_source=qr" class="page-footer__left-link">Instagram</a>
-          <a href="https://www.tiktok.com/@tarotvioo?_r=1&_d=secCgYIASAHKAESPgo8NCk%2Ffus4VTrt%2FKHZj0zmk97imE1qgU21TOyjpPbOAUs1UZ7WFdaS%2Fdb6fLYhY1qsX%2Facs1uyK69m%2FYirGgA%3D&checksum=25767d2774eb2030a9b064fa516d1e5d8e8b4d5d1aa190f9fbabc7903f646215&sec_uid=MS4wLjABAAAAWHNUaZUrPMFDEwhvN5M9IjPo7LHj8gZollCuu2TVuOpeCpLRpHJlGo2pzjxk_Y-c&sec_user_id=MS4wLjABAAAAWHNUaZUrPMFDEwhvN5M9IjPo7LHj8gZollCuu2TVuOpeCpLRpHJlGo2pzjxk_Y-c&share_app_id=1180&share_author_id=7124647437218858011&share_link_id=2F01BD1F-66DA-4878-A456-1F07AB2BCEE3&sharer_language=vi&social_share_type=4&source=h5_t&timestamp=1741400711&tt_from=copy&u_code=e32bi9hf3fi9l2&ug_btm=b8727%2Cb0&user_id=7124647437218858011&utm_campaign=client_share&utm_medium=ios&utm_source=copy" class="page-footer__left-link">Tiktok</a>
-        </div><!-- Page footer left -->
-        <div class="page-footer__right">
-          <img src="assets/ban_do.png" alt="" class="page-footer__right-img">
-          <div class="page-footer__right-box">
-            <h2 class="page-footer__right-title">Have any questions?</h2>
-            <a href="#" class="page-footer__right-link">Talk to a specialist</a>
-          </div><!-- Page footer right box -->
-        </div><!-- Page footer right -->
-      </footer>
     </div>
-  </body>
+    
+    <!-- Services -->
+    <section id="services" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Dịch vụ của chúng tôi</h2>
+                <p class="max-w-2xl mx-auto">Tarot Vio cung cấp các dịch vụ tâm linh chuyên nghiệp bằng nhiều hệ thống bài khác nhau</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarot Service -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all">
+                    <div class="h-48 bg-purple-700 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1587731552695-a6af3bae3e14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Tarot" class="w-full h-full object-cover opacity-70">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-eye text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font">Giải bài Tarot</h3>
+                        </div>
+                        <p class="mb-6 text-gray-600">Giải mã các lá bài Tarot để hiểu rõ hơn về tình yêu, sự nghiệp, tài chính và cuộc sống của bạn.</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Giải bài 3 lá cơ bản</span>
+                                <span class="font-bold">150.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Giải bài Celtic Cross</span>
+                                <span class="font-bold">300.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span>Giải bài theo chủ đề</span>
+                                <span class="font-bold">250.000đ</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="inline-block w-full text-center bg-purple-600 text-white font-bold py-3 rounded-lg hover:bg-purple-700 transition-all">Đặt lịch ngay</a>
+                    </div>
+                </div>
+                
+                <!-- Tea Leaf Reading -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all">
+                    <div class="h-48 bg-green-700 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1536500152107-01ab1422f932?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Bài trà" class="w-full h-full object-cover opacity-70">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-leaf text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font">Xem bài trà</h3>
+                        </div>
+                        <p class="mb-6 text-gray-600">Giải mã các hình ảnh từ bã trà để dự đoán tương lai - một hình thức bói toán cổ xưa và chính xác.</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Xem bã trà cơ bản</span>
+                                <span class="font-bold">200.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Xem bã trà chi tiết</span>
+                                <span class="font-bold">350.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span>Trọn gói hàng tháng</span>
+                                <span class="font-bold">800.000đ</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="inline-block w-full text-center bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition-all">Đặt lịch ngay</a>
+                    </div>
+                </div>
+                
+                <!-- Lenormand -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all">
+                    <div class="h-48 bg-blue-700 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1618336756475-7a763b37d7f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Lenormand" class="w-full h-full object-cover opacity-70">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-moon text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold heading-font">Bài Lenormand</h3>
+                        </div>
+                        <p class="mb-6 text-gray-600">Hệ thống bài tiên tri Lenormand giúp bạn nhìn thấy những sự kiện cụ thể trong tương lai gần.</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Trải bài 3 lá</span>
+                                <span class="font-bold">180.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-gray-200">
+                                <span>Trải bài 9 lá</span>
+                                <span class="font-bold">320.000đ</span>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span>Trải bài Grand Tableau</span>
+                                <span class="font-bold">500.000đ</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#contact" class="inline-block w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-all">Đặt lịch ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Offer -->
+    <section class="py-16 px-6 bg-amber-50">
+        <div class="container mx-auto max-w-5xl">
+            <div class="rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 p-8 md:p-12 text-white">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-4 heading-font">Ưu đãi đặc biệt hôm nay!</h2>
+                        <p class="mb-4">Đăng ký ngay hôm nay để nhận được gói giải bài kết hợp Tarot + Lenormand với giá chỉ 450.000đ (tiết kiệm 50.000đ)</p>
+                        <ul class="list-disc pl-6 mb-6">
+                            <li>Giải bài chi tiết và chính xác</li>
+                            <li>Tư vấn tận tình từ chuyên gia</li>
+                            <li>Báo cáo chi tiết qua email</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="bg-white text-purple-800 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold mb-2">450.000đ</div>
+                            <div class="text-sm line-through mb-4">500.000đ</div>
+                            <a href="#contact" class="inline-block w-full text-center bg-purple-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-purple-700 transition-all">Đăng ký ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About -->
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Tarot Reader" class="rounded-2xl shadow-xl w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 heading-font">Về Tarot Vio</h2>
+                    <p class="mb-6 text-lg">Tarot Vio được thành lập bởi chuyên gia tâm linh với hơn 10 năm kinh nghiệm trong lĩnh vực giải bài Tarot, xem bói bài trà và Lenormand.</p>
+                    <p class="mb-8">Chúng tôi tin rằng mỗi người đều có quyền lựa chọn và kiến tạo tương lai của mình. Các hệ thống bài cổ xưa này chỉ là công cụ giúp bạn hiểu rõ hơn về bản thân và các khả năng có thể xảy ra.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-check-circle text-purple-600 mr-2"></i>
+                                <h3 class="font-bold">Chuyên nghiệp</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Đội ngũ chuyên gia được đào tạo bài bản</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-check-circle text-purple-600 mr-2"></i>
+                                <h3 class="font-bold">Bảo mật</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Thông tin khách hàng được bảo mật tuyệt đối</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-check-circle text-purple-600 mr-2"></i>
+                                <h3 class="font-bold">Tận tâm</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Giải bài chi tiết với những lời khuyên hữu ích</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-check-circle text-purple-600 mr-2"></i>
+                                <h3 class="font-bold">Uy tín</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Hơn 1000 khách hàng hài lòng mỗi năm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 px-6 bg-purple-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Khách hàng nói gì về chúng tôi</h2>
+                <p class="max-w-2xl mx-auto">Những phản hồi chân thực từ khách hàng đã trải nghiệm dịch vụ của Tarot Vio</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Chị Mai Anh</h4>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Giải bài của Tarot Vio rất chính xác. Những dự đoán về chuyện tình cảm của tôi đã xảy ra đúng như lời giải. Cảm ơn rất nhiều!"</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Anh Trường</h4>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Tôi rất bất ngờ với độ chính xác của xem bói bài trà. Những hình ảnh từ bã trà được giải thích rất logic và ứng với tình hình thực tế của tôi."</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Chị Hồng Nhung</h4>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Lenormand thực sự giúp ích cho tôi trong việc đưa ra quyết định kinh doanh. Giải bài cụ thể, không mơ hồ như nhiều nơi khác."</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12">
+                <button class="bg-white text-purple-600 font-bold border-2 border-purple-600 px-8 py-3 rounded-full hover:bg-purple-600 hover:text-white transition-all">Xem thêm đánh giá</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 gradient-bg text-white p-12">
+                        <h2 class="text-3xl font-bold mb-6 heading-font">Liên hệ với chúng tôi</h2>
+                        <p class="mb-8">Đặt lịch giải bài hoặc yêu cầu tư vấn miễn phí về các gói dịch vụ phù hợp với nhu cầu của bạn.</p>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-map-marker-alt mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold">Địa chỉ</h4>
+                                    <p>123 Đường Tâm Linh, Quận 1, TP.HCM</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold">Điện thoại</h4>
+                                    <p>0987 654 321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p>info@tarotvio.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white text-purple-600 flex items-center justify-center hover:bg-purple-200 transition-all">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white text-purple-600 flex items-center justify-center hover:bg-purple-200 transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-white text-purple-600 flex items-center justify-center hover:bg-purple-200 transition-all">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-12">
+                        <h3 class="text-2xl font-bold mb-6 heading-font">Gửi yêu cầu</h3>
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block mb-2 font-medium">Họ tên</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block mb-2 font-medium">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="block mb-2 font-medium">Điện thoại</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="service" class="block mb-2 font-medium">Dịch vụ quan tâm</label>
+                                <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                                    <option value="">Chọn dịch vụ...</option>
+                                    <option value="tarot">Giải bài Tarot</option>
+                                    <option value="tea">Xem bài trà</option>
+                                    <option value="lenormand">Bài Lenormand</option>
+                                    <option value="combo">Gói Combo</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block mb-2 font-medium">Nội dung yêu cầu</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full gradient-bg text-white font-bold py-3 rounded-lg hover:opacity-90 transition-all">Gửi yêu cầu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Câu hỏi thường gặp</h2>
+                <p class="max-w-2xl mx-auto">Những thắc mắc phổ biến của khách hàng về dịch vụ của chúng tôi</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(1)">
+                        <h3 class="font-bold text-lg">Giải bài Tarot có chính xác không?</h3>
+                        <i class="fas fa-chevron-down transition-all transform" id="faq-icon-1"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 hidden" id="faq-answer-1">Tarot là công cụ giúp bạn nhìn nhận vấn đề từ nhiều góc độ khác nhau. Độ chính xác phụ thuộc vào kỹ năng của người giải bài và tâm thế của bạn khi đặt câu hỏi. Chúng tôi có đội ngũ chuyên gia với nhiều năm kinh nghiệm để đảm bảo chất lượng giải đáp tốt nhất.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(2)">
+                        <h3 class="font-bold text-lg">Tôi có thể chọn bộ bài khi xem không?</h3>
+                        <i class="fas fa-chevron-down transition-all transform" id="faq-icon-2"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 hidden" id="faq-answer-2">Có, chúng tôi có nhiều bộ bài khác nhau như Rider-Waite, Thoth, Marseille,... Bạn có thể yêu cầu trước khi đặt lịch. Với dịch vụ xem bài trà, chúng tôi sẽ sử dụng loại trà đặc biệt phù hợp cho việc đọc bã.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(3)">
+                        <h3 class="font-bold text-lg">Quá trình xem bài diễn ra như thế nào?</h3>
+                        <i class="fas fa-chevron-down transition-all transform" id="faq-icon-3"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 hidden" id="faq-answer-3">Quá trình gồm 3 bước: 1) Xác định chủ đề bạn quan tâm; 2) Trải bài và giải mã các lá bài; 3) Kết nối các ý nghĩa và đưa ra lời khuyên. Bạn có thể chọn hình thức trực tiếp tại phòng đọc hoặc trực tuyến qua video call.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-md">
+                    <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(4)">
+                        <h3 class="font-bold text-lg">Nhận kết quả bằng hình thức nào?</h3>
+                        <i class="fas fa-chevron-down transition-all transform" id="faq-icon-4"></i>
+                    </div>
+                    <p class="mt-3 text-gray-600 hidden" id="faq-answer-4">Bạn sẽ nhận được kết quả ngay trong buổi xem bài. Ngoài ra, chúng tôi sẽ gửi báo cáo chi tiết qua email trong vòng 24 giờ, bao gồm hình ảnh các lá bài và lời giải thích đầy đủ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-6 heading-font">Tarot Vio</h3>
+                    <p class="mb-6">Đồng hành cùng bạn trên hành trình khám phá bản thân và vận mệnh thông qua các hệ thống bài cổ xưa.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Dịch vụ</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:underline">Giải bài Tarot</a></li>
+                        <li><a href="#" class="hover:underline">Xem bài trà</a></li>
+                        <li><a href="#" class="hover:underline">Bài Lenormand</a></li>
+                        <li><a href="#" class="hover:underline">Combo dịch vụ</a></li>
+                        <li><a href="#" class="hover:underline">Tư vấn tâm lý</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Liên kết</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:underline">Về chúng tôi</a></li>
+                        <li><a href="#" class="hover:underline">Đánh giá</a></li>
+                        <li><a href="#" class="hover:underline">Blog</a></li>
+                        <li><a href="#" class="hover:underline">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="hover:underline">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white border-opacity-20 mt-12 pt-8 text-center">
+                <p>&copy; 2023 Tarot Vio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ toggle
+        function toggleFAQ(num) {
+            const answer = document.getElementById(`faq-answer-${num}`);
+            const icon = document.getElementById(`faq-icon-${num}`);
+            
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất!');
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
 </html>
